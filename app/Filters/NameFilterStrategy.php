@@ -13,7 +13,7 @@ class NameFilterStrategy implements FilterStrategyInterface
      */
     public function filter(array $hotels, array $params): array
     {
-        $name = $params['name'];
+        $name = $params['name'] ?? null;
         return $name ?
             array_filter($hotels, fn($hotel) => stripos($hotel['name'], $name) !== false)
             : $hotels;
