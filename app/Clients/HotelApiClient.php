@@ -14,6 +14,7 @@ class HotelApiClient
 
     public function getHotels()
     {
-        return Http::get($this->apiUrl);
+        $response=Http::get($this->apiUrl);
+        return $response->json(['hotels']);
     }
 }
