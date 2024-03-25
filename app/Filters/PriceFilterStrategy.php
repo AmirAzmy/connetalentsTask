@@ -6,7 +6,7 @@ class PriceFilterStrategy implements FilterStrategyInterface
 {
 
     /**
-     * filter hotels by name
+     * filter hotels by price range
      * @param array $hotels
      * @param array $params
      * @return array

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clients\HotelApiClient;
+use App\Filters\CityFilterStrategy;
 use App\Filters\NameFilterStrategy;
 use App\Filters\PriceFilterStrategy;
 use App\Http\Requests\HotelRequest;
@@ -30,8 +31,11 @@ class HotelController extends Controller
         $filterContext = new FilterContext();
         $filterContext->addStrategy(new NameFilterStrategy());
         $filterContext->addStrategy(new PriceFilterStrategy());
+        $filterContext->addStrategy(new CityFilterStrategy());
+
+
         $hotels=$filterContext->apply($hotels,$request->only([
-            'name','price_from','price_to'
+            'name','price_from','price_to','city'
         ]));
         return response()->json($hotels);
     }
