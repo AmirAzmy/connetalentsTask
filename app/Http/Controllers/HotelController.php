@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Clients\HotelApiClient;
+use App\Filters\NameFilterStrategy;
 use App\Http\Requests\HotelRequest;
+use App\Utilities\FilterContext;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -23,8 +25,12 @@ class HotelController extends Controller
     public function index(HotelRequest $request)
     {
         //fetch hotels data
-        $hotels=$this->hotelApiClient->getHotels();
-
+        $hotels = $this->hotelApiClient->getHotels();
+        $filterContext = new FilterContext();
+        $filterContext->addStrategy(new NameFilterStrategy());
+        $hotels=$filterContext->apply($hotels,$request->only([
+            'name','price_from','price_to'
+        ]));
         return response()->json($hotels);
     }
 }
