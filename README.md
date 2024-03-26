@@ -35,10 +35,10 @@ This repository contains a Laravel project for managing hotel data through a RES
     - `price_from`: Filter hotels with prices greater than or equal to the specified value.
     - `price_to`: Filter hotels with prices less than or equal to the specified value.
     - `city`: Filter hotels by city.
-    - `date_start`: Filter hotels available from the specified date.
-    - `date_end`: Filter hotels available until the specified date.
+    - `date_start`: Filter hotels available from the specified date (format: dd-mm-yyyy).
+    - `date_end`: Filter hotels available until the specified date (format: dd-mm-yyyy). 
 
-  Example usage: `/api/hotels?name=Media%20One%20Hotel&price_from=80&price_to=120&city=Dubai&date_start=2023-10-10&date_end=2023-10-15`
+  Example usage: `/api/hotels?name=Media%20One%20Hotel&price_from=80&price_to=120&city=Dubai&date_start=05-10-2023&date_end=15-10-2023`
 
 - **Sorting**:
   - You can sort hotels using the following parameters:
