@@ -51,6 +51,16 @@ This repository contains a Laravel project for managing hotel data through a RES
 - Ensure that the Laravel development server is running (`php artisan serve`) before making API requests.
 - Include the `Accept: application/json header` in your API requests to ensure JSON responses.
  
+## Testing
+
+The project includes unit tests to ensure the functionality of the API endpoints. To run the tests, execute the following command:
+    
+    
+    php artisan test
+
+    
+    
+The tests cover scenarios such as filtering hotels by name, city, price range, date range, and sorting by name or price.
 
 
 For further assistance or inquiries, please contact me at `eng.amirazmys@gmail.com`.
