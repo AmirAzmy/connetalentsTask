@@ -9,6 +9,7 @@ use App\Filters\NameFilterStrategy;
 use App\Filters\PriceRangeFilterStrategy;
 use App\Http\Requests\HotelRequest;
 use App\Utilities\FilterContext;
+use App\Utilities\SortUtility;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -39,8 +40,11 @@ class HotelController extends Controller
         $hotels=$filterContext->apply($hotels,$request->only([
             'name','price_from','price_to','city','date_start','date_end'
         ]));
-
-
+        $hotels=SortUtility::sort(
+            $hotels,
+            $request->get('sort_by'),
+            $request->get('sort_type')
+        );
         return response()->json($hotels);
     }
 }

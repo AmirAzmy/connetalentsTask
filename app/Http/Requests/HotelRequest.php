@@ -24,8 +24,10 @@ class HotelRequest extends FormRequest
         return [
             'price_from' => 'numeric',
             'price_to'   => 'numeric',
-            'date_start'  => 'date_format:d-m-Y',
-            'date_end'    => 'date_format:d-m-Y|after:date_start',
+            'date_start' => 'date_format:d-m-Y',
+            'date_end'   => 'date_format:d-m-Y|after:date_start',
+            'sort_by'    => 'in:price,name',
+            'sort_type'  => 'in:asc,desc',
         ];
     }
 }

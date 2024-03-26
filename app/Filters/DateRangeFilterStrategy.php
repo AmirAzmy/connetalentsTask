@@ -12,12 +12,12 @@ class DateRangeFilterStrategy implements FilterStrategyInterface
      */
     public function filter(array $hotels, array $params): array
     {
-        $start = strtotime($params['date_start']) ?? null;
-        $end = strtotime($params['date_end']) ?? null;
+        $start = isset($params['date_start']) ? strtotime($params['date_start']) : null;
+        $end = isset($params['date_end']) ? strtotime($params['date_end']) : null;
 
         return $start && $end ?
-            array_filter($hotels, function($hotel) use ($start, $end) {
-                foreach ($hotel['availability'] as $availability){
+            array_filter($hotels, function ($hotel) use ($start, $end) {
+                foreach ($hotel['availability'] as $availability) {
                     $from = strtotime($availability['from']);
                     $to = strtotime($availability['to']);
                     if ($from <= $end && $to >= $start) {
