@@ -7,12 +7,13 @@ class SortUtility
     /**
      * sort nested array
      * @param array $data
-     * @param string $sortBy
-     * @param string $sortDirection
+     * @param string|null $sortBy
+     * @param string|null $sortDirection
      * @return array
      */
-    static function sort(array $data, string $sortBy = 'name', string $sortDirection = 'asc'):array
+    static function sort(array $data, string|null $sortBy = 'name', string|null $sortDirection = 'asc'): array
     {
+        $sortBy = $sortBy ?? 'name';
         // Default sort type is ascending
         $sortType = strtolower($sortDirection) === 'desc' ? SORT_DESC : SORT_ASC;
 
