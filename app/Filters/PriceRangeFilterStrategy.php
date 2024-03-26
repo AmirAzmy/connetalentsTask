@@ -2,7 +2,7 @@
 
 namespace App\Filters;
 
-class PriceFilterStrategy implements FilterStrategyInterface
+class PriceRangeFilterStrategy implements FilterStrategyInterface
 {
 
     /**
